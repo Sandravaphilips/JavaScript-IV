@@ -30,14 +30,10 @@ class Instructor extends Person {
         return `${student.name} receives a perfect score on ${subject}`
     }
 
-    addOrSubtractToGrade(grade) {
+    addToGrade(student) {
         let randomNumber = Math.random() * 10;
-        if (grade <= 70) {
-           grade += randomNumber;  
-        } else {
-            grade -= randomNumber;
-        }
-        return grade;
+        student.grade += randomNumber;  
+        return student.grade;
     }
 }
 
@@ -49,7 +45,7 @@ class Student extends Person {
         this.previousBackground = "Media";
         this.className = "CS132";
         this.favSubjects = ["HTML", "PYTHON", "CSS", "JAVASCRIPT"];
-        this.grade = 80;
+        this.grade = 60;
     }
 
     listsSubjects() {
@@ -69,6 +65,8 @@ class Student extends Person {
     graduate() {
         if (this.grade > 70) {
             return `You have succesfully graduated!`
+        } else {
+           return `We'll get back to you`;
         }
     }
 }
@@ -90,4 +88,8 @@ class ProjectManagers extends Instructor {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
+
+
+
 
