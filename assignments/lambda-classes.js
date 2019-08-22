@@ -12,6 +12,8 @@ class Person {
     }
 }
 
+
+
 class Instructor extends Person {
     constructor(name, age, location) {
         super(name, age, location);
@@ -29,6 +31,8 @@ class Instructor extends Person {
     }
 }
 
+
+
 class Student extends Person {
     constructor(name, age, location) {
         super(name, age, location);
@@ -39,15 +43,35 @@ class Student extends Person {
 
     listsSubjects() {
         for (let i = 0; i < this.favSubjects.length; i++) {
-            return this.favSubjects[i];
+            console.log(this.favSubjects[i]);
         }
     }
 
     PRAssignment(subject) {
-        return `${student.name} has submitted a PR for 4 ${subject}`;
+        return `${this.name} has submitted a PR for 4 ${subject}`;
     }
 
     sprintChallenge(subject) {
-        return `${student.name} has begun sprint challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
+
+
+
+class ProjectManagers extends Instructor {
+    constructor(name, age, location) {
+        super(name, age, location);
+        this.gradClassName = "CS1";
+        this.favInstructor = "Gabe";
+    }
+
+    standUp(slackChannel) {
+        return `${this.name} announces to ${slackChannel}, @channel standy times!`
+    }
+
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
+}
+
+const sandra = new ProjectManagers("Sandra", 23, "Nigeria");
