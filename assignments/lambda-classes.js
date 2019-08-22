@@ -29,6 +29,16 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} receives a perfect score on ${subject}`
     }
+
+    addOrSubtractToGrade(grade) {
+        let randomNumber = Math.random() * 10;
+        if (grade <= 70) {
+           grade += randomNumber;  
+        } else {
+            grade -= randomNumber;
+        }
+        return grade;
+    }
 }
 
 
@@ -39,6 +49,7 @@ class Student extends Person {
         this.previousBackground = "Media";
         this.className = "CS132";
         this.favSubjects = ["HTML", "PYTHON", "CSS", "JAVASCRIPT"];
+        this.grade = 80;
     }
 
     listsSubjects() {
@@ -53,6 +64,12 @@ class Student extends Person {
 
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+
+    graduate() {
+        if (this.grade > 70) {
+            return `You have succesfully graduated!`
+        }
     }
 }
 
@@ -74,4 +91,3 @@ class ProjectManagers extends Instructor {
     }
 }
 
-const sandra = new ProjectManagers("Sandra", 23, "Nigeria");
